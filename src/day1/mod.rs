@@ -36,17 +36,15 @@ pub fn part2() {
 }
 
 fn compare_depths(input: &Vec<i32>) -> i32 {
-    let total = input.iter()
+    input
+        .iter()
         .fold((0, i32::MAX), |(total, value), item| {
             let number = *item;
-            if value < *item {
-                (total + 1, number)
-            } else {
-                (total, number)
-            }
+            let total = total + if value < *item { 1 } else { 0 };
+
+            (total, number)
         })
-        .0;
-    total
+        .0
 }
 
 fn read_input<'a>() -> Vec<i32> {
