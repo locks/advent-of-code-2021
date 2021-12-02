@@ -1,3 +1,8 @@
+pub fn run() {
+    part1();
+    part2();
+}
+
 pub fn part1() {
     let input = read_input();
     let total = compare_depths(&input);

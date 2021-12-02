@@ -3,6 +3,11 @@ struct Position {
     y: i32
 }
 
+pub fn run() {
+    part1();
+    part2();
+}
+
 pub fn part1() {
     let input = read_input();
 

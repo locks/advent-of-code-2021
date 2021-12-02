@@ -12,12 +12,10 @@ fn main() {
 
     match choice {
         0 => {
-            day1::part1();
-            day1::part2();
+            day1::run();
         }
         1 => {
-            day2::part1();
-            day2::part2();
+            day2::run();
         }
         _ => unreachable!(),
     }
