@@ -50,8 +50,8 @@ fn compare_depths(input: &Vec<i32>) -> i32 {
 }
 
 fn read_input<'a>() -> Vec<i32> {
-    let input = std::fs::read_to_string("./src/day1/input.txt").unwrap();
-    input
+    std::fs::read_to_string("./src/day1/input.txt")
+        .unwrap()
         .trim()
         .split("\n")
         .map(|str| i32::from_str_radix(&str, 10).unwrap())
