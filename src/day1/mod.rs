@@ -19,19 +19,19 @@ pub fn part2() {
     let chain = a
         .zip(b)
         .zip(c)
-        .map(|((x, y), z)| [x, y, z])
-        .fold(vec![], |mut acc, chunk| {
-            for item in chunk {
-                acc.push(item)
-            }
-
+        .map(|((x, y), z)| vec![x, y, z])
+        // flatten
+        .fold(vec![], |mut acc, ref mut chunk| {
+            acc.append(chunk);
             acc
-        });
-    let chain = chain.iter().take_while(|x| x.len() == 3).map(|window| {
-        window.iter().sum()
-    }).collect::<Vec<i32>>();
+        })
+        .iter()
+        .take_while(|x| x.len() == 3)
+        .map(|window| window.iter().sum())
+        .collect::<Vec<i32>>();
 
     let total = compare_depths(&chain);
+
     println!("Day\t1\tPart\t2: {}", total);
 }
 
